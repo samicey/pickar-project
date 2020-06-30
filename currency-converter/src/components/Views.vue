@@ -110,7 +110,7 @@ export default {
         // console.log(this.History)
        this.currency.result = parseInt(this.currency.amount)*convertionRate;
        this.saveHistory()
-       axios.get('http://localhost:4000/all')
+       axios.get('https://pickarapp.herokuapp.com/all')
        .then((curdata)=>{
          this.History = curdata.data;
            console.log(curdata.data)
@@ -122,7 +122,7 @@ export default {
         console.log(this.History)
        this.currency.result = parseInt(this.currency.amount)/convertionRate;
        this.saveHistory()
-       axios.get('http://localhost:4000/all')
+       axios.get('https://pickarapp.herokuapp.com/all')
        .then((curdata)=>{
          this.History = curdata.data;
            console.log(curdata.data)
@@ -137,11 +137,11 @@ export default {
    async saveHistory(){
       let from = `${this.currency.amount}${this.currency.fromCur}`;
       let to = `${this.currency.result}${this.currency.toCur}`;
-      let URL = 'http://localhost:4000/data'
+      let URL = 'https://pickarapp.herokuapp.com/data'
       await axios.post(URL,{from,to})
    },
    async getAllHistory(){
-      axios.get('http://localhost:4000/all')
+      axios.get('https://pickarapp.herokuapp.com/all')
        .then((curdata)=>{
          this.History = curdata.data;
            console.log(curdata.data)
