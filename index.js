@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res)=>{
-  res.send(path.join(__dirname, 'currency-converter', 'dist'))
+  res.sendFile(path.join(__dirname, 'currency-converter', 'dist', 'index.html'))
 })
 
 // add history
